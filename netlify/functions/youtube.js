@@ -11,6 +11,7 @@ exports.handler = async (event, context) => {
     const data = await response.json()
     const ytItems = await data.items
     const viewCount = await ytItems?.[0]?.statistics.viewCount
+    console.log(viewCount)
     const ytViews = new Object();
     ytViews.number = viewCount;
 
