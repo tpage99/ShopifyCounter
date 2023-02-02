@@ -7,7 +7,7 @@
 directory = "netlify/functions"
 
 [[redirects]]
-from = "/*youtube-views"
+from = "/youtube-views"
 to = "/.netlify/functions/youtube"
 status = 200
 
