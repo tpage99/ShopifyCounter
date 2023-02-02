@@ -11,13 +11,12 @@ exports.handler = async (event, context) => {
     const data = await response.json()
     const ytItems = data.items
     const viewCount = ytItems?.[0]?.statistics.viewCount
-    console.log("this is the view count" + viewCount)
-    const ytURL = {
-      "number": viewCount
-    }
+    const ytViews = new Object();
+    ytViews.number = viewCount;
+
     return {
       statusCode: 200,
-      body: JSON.stringify(ytURL),
+      body: JSON.stringify(ytViews),
       headers: {
         'Content-Type': 'application/json'
       }
