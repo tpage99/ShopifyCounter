@@ -9,12 +9,12 @@ exports.handler = async (event, context) => {
   try {
     const response = await fetch(YT_API)
     const data = await response.json()
-    const ytItems = await data.items
+    const ytItems = await data.items?.[0]?.statistics.viewCount
     console.log('yt items is ' + ytItems)
-    const viewCount = await ytItems?.[0]?.statistics.viewCount
-    console.log('viewcount is ' + viewCount)
+    // const viewCount = await ytItems?.[0]?.statistics.viewCount
+    // console.log('viewcount is ' + viewCount)
     const ytViews = new Object();
-    ytViews.number = viewCount;
+    ytViews.seriously = ytItems;
 
     return {
       statusCode: 200,
