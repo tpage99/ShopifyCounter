@@ -5,7 +5,7 @@ exports.handler = async function() {
   const Yt_Api_Key = process.env.YT_API_KEY
 
   const YT_API = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channel_Id}&key=${Yt_Api_Key}`
-
+  console.log(YT_API)
   const response = await fetch(YT_API)
   const data = await response.json()
   const ytItems = data.items
