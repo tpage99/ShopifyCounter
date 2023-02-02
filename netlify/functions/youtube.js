@@ -1,5 +1,4 @@
 import fetch from 'node-fetch'
-
 exports.handler = async function() {
   const channel_Id = process.env.CHANNEL_ID
   const Yt_Api_Key = process.env.YT_API_KEY

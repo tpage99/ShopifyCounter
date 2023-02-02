@@ -1,12 +1,11 @@
 {
-  "dependencies": {
-    "node-fetch": "^3.3.0"
-  },
   "name": "shopifycounter",
   "description": "Learn how to use serverless functions in less than 30 minutes!",
   "version": "1.0.0",
-  "main": "public/index.html",
-  "devDependencies": {},
+  "main": "index.js",
+  "devDependencies": {
+    "node-fetch": "^3.3.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
