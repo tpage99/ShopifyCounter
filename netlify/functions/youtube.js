@@ -3,14 +3,16 @@ import fetch from 'node-fetch'
 const channel_Id = process.env.CHANNEL_ID
 const Yt_Api_Key = process.env.YT_API_KEY
 
-const YT_API = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=` + channel_Id + `&key=` + Yt_Api_Key
+const YT_API = `https://www.googleapis.com/youtube/v3/channels?part=statistics&fields=items(statistics(viewCount))&id=` + channel_Id + `&key=`+ Yt_Api_Key
 
 export const handler = async (event, context) => {
   try {
     const response = await fetch(YT_API)
     const data = await response.json()
+    console.table('here is the data in table ' + data)
+
     const ytItems = await data.items?.[0]?.statistics.viewCount
-    console.log('yt items is ' + ytItems)
+    console.log('yt items is ' + ytItems + ` and the type is ` + typeof ytItems)
     // const viewCount = await ytItems?.[0]?.statistics.viewCount
     // console.log('viewcount is ' + viewCount)
     const ytViews = new Object();
