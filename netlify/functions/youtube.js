@@ -9,14 +9,16 @@ export const handler = async (event, context) => {
   try {
     const response = await fetch(YT_API)
     const data = await response.json()
-    const ytItems = data.items[0].statistics.viewCount;
+    console.log(data)
+
+    // const ytItems = data.items[0].statistics.viewCount;
 
     // const ytItems = await data.items?.[0]?.statistics.viewCount
-    console.log('yt items is ' + ytItems + ` and the type is ` + typeof ytItems)
+    // console.log('yt items is ' + ytItems + ` and the type is ` + typeof ytItems)
     // const viewCount = await ytItems?.[0]?.statistics.viewCount
     // console.log('viewcount is ' + viewCount)
-    const ytViews = new Object();
-    ytViews.number = ytItems;
+    // const ytViews = new Object();
+    // ytViews.number = ytItems;
 
     return {
       statusCode: 200,
