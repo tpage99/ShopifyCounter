@@ -8,7 +8,11 @@ const YT_API = `https://www.googleapis.com/youtube/v3/channels?part=statistics&f
 export const handler = async (event, context) => {
   try {
     const response = await fetch(YT_API)
+
+    console.log(response)
+    
     const data = await response.json()
+    console.log(JSON.parse(event), 'event')
     console.table('here is the data in table ' + data)
 
     const ytItems = await data.items?.[0]?.statistics.viewCount
