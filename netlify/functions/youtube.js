@@ -16,14 +16,14 @@ export const handler = async (event, context) => {
 
     // const ytItems = await data.items?.[0]?.statistics.viewCount
     console.log('yt items is ' + ytItems + ` and the type is ` + typeof ytItems)
-    const viewCount = await ytItems?.[0]?.statistics.viewCount
-    console.log('viewcount is ' + viewCount)
+    // const viewCount = await ytItems?.[0]?.statistics.viewCount
+    // console.log('viewcount is ' + viewCount)
     const ytViews = new Object();
     ytViews.number = ytItems;
 
     return {
       statusCode: 200,
-      body: JSON.stringify(viewCount),
+      body: JSON.stringify(ytViews),
       headers: {
         'Content-Type': 'application/json'
       }
