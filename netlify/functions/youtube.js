@@ -8,14 +8,10 @@ const YT_API = `https://www.googleapis.com/youtube/v3/channels?part=statistics&f
 export const handler = async (event, context) => {
   try {
     const response = await fetch(YT_API)
-
-    console.log(response)
-    
     const data = await response.json()
-    console.log(JSON.parse(event), 'event')
-    console.table('here is the data in table ' + data)
+    const ytItems = data.items[0].statistics.viewCount;
 
-    const ytItems = await data.items?.[0]?.statistics.viewCount
+    // const ytItems = await data.items?.[0]?.statistics.viewCount
     console.log('yt items is ' + ytItems + ` and the type is ` + typeof ytItems)
     // const viewCount = await ytItems?.[0]?.statistics.viewCount
     // console.log('viewcount is ' + viewCount)
