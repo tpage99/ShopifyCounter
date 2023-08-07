@@ -12,13 +12,13 @@ export const handler = async (event, context) => {
   }
 
   console.log(slackMsg);
-  
+
   try {
     const response = await fetch(slackURL)
     
     return {
       statusCode: 200,
-      body: slackMsg,
+      body: JSON.stringify(slackMsg),
       headers: {
         'Content-Type': 'application/json'
       }
