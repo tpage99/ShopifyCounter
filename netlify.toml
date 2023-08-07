@@ -12,6 +12,10 @@ from = "/youtube-views"
 to = "/.netlify/functions/youtube"
 status = 200
 
+from = "/customer-update"
+to = "/.netlify/functions/customer_update"
+status = 200
+
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
   #[dev]
