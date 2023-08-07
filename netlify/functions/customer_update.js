@@ -4,13 +4,13 @@ export const handler = async (event, context) => {
     if (event.httpMethod !== "POST") {
         return { statusCode: 405, body: "Method Not Allowed" };
     }
-
+    const slackURL = process.env.SLACK_CUSTOMER_UPDATE_WEBHOOK_URL;
     const incomingData = JSON.parse(event.body);
 
     const slackMsg = `New customer update! ${incomingData.first_name} ${incomingData.last_name} just updated their info. Notes on this customer include: ${incomingData.note}.`
 
     try {
-        const response = await fetch('https://hooks.slack.com/services/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', {
+        const response = await fetch(`${slackURL}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
