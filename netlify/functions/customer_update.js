@@ -13,22 +13,16 @@ export const handler = async (event, context) => {
 
   console.log(slackMsg);
 
-  try {
-    const response = await fetch(slackURL)
-    
-    return {
-      statusCode: 200,
-      body: JSON.stringify(slackMsg),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
+  const response = await fetch(slackURL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      // Add any other headers if necessary
+    },
+    body: JSON.stringify(slackMsg),
+  });
+  if (!response.ok) {
+    return { statusCode: response.status, body: 'Failed to send data' };
   }
-  catch (error) {
-    console.error('Error forwarding data:', error);
-    return {
-        statusCode: 500,
-        body: 'Failed to forward data.'
-    };
-  }
+  return { statusCode: 200, body: 'Data sent successfully' };
 };
