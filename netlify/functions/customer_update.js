@@ -1,14 +1,13 @@
 import fetch from 'node-fetch'
 
-exports.handler = async function(event, context) {
+export const handler = async (event, context) => {
     if (event.httpMethod !== "POST") {
         return { statusCode: 405, body: "Method Not Allowed" };
     }
 
     const incomingData = JSON.parse(event.body);
 
-    // Modify the data if necessary
-    // Example: incomingData.someProperty = "New Value";
+    console.log(incomingData);
 
     try {
         const response = await fetch('https://hooks.slack.com/services/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', {
