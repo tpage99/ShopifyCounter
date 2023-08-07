@@ -7,7 +7,7 @@ export const handler = async (event, context) => {
 
     const incomingData = JSON.parse(event.body);
 
-    console.log(incomingData);
+    slackMsg = `New customer update! ${incomingData.first_name} ${incomingData.last_name} just updated their info. Notes on this customer include: ${incomingData.note}.`
 
     try {
         const response = await fetch('https://hooks.slack.com/services/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', {
@@ -15,7 +15,7 @@ export const handler = async (event, context) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(incomingData)
+            body: JSON.stringify(slackMsg)
         });
 
         const responseBody = await response.text();
