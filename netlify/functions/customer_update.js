@@ -11,13 +11,10 @@ export const handler = async (event, context) => {
     "text": `New customer update! ${incomingData.first_name} ${incomingData.last_name} just updated their info. Notes on this customer include: ${incomingData.note}.`
   }
 
-  console.log(slackMsg);
-
   const response = await fetch(slackURL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      // Add any other headers if necessary
     },
     body: JSON.stringify(slackMsg),
   });
