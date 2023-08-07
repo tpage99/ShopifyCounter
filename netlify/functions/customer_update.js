@@ -11,6 +11,8 @@ export const handler = async (event, context) => {
     "text": `New customer update! ${incomingData.first_name} ${incomingData.last_name} just updated their info. Notes on this customer include: ${incomingData.note}.`
   }
 
+  console.log(slackMsg);
+  
   try {
     const response = await fetch(slackURL)
     
