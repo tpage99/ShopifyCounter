@@ -7,8 +7,10 @@ export const handler = async (event, context) => {
   const slackURL = process.env.SLACK_CUSTOMER_UPDATE_WEBHOOK_URL;
   const incomingData = JSON.parse(event.body);
   console.log(incomingData);
+  const note = incomingData.note ? incomingData.note : "No notes on this customer";
+  const orderQuantity = incomingData.order_quantity ? incomingData.order_quantity : 0;
   const slackMsg = {
-    "text": `New customer update! ${incomingData.first_name} ${incomingData.last_name} just updated their info. Notes on this customer include: ${incomingData.note}.`
+    "text": `New customer update! ${incomingData.first_name} ${incomingData.last_name} just updated their info. Notes on this customer include: ${note}. ${incomingData.first_name} has made ${orderQuantity} orders. Most recent order: ${incomingData.last_order_name}`
   }
 
   const response = await fetch(slackURL, {
