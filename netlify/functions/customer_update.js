@@ -6,7 +6,7 @@ export const handler = async (event, context) => {
   }
   const slackURL = process.env.SLACK_CUSTOMER_UPDATE_WEBHOOK_URL;
   const incomingData = JSON.parse(event.body);
-
+  console.log(incomingData);
   const slackMsg = {
     "text": `New customer update! ${incomingData.first_name} ${incomingData.last_name} just updated their info. Notes on this customer include: ${incomingData.note}.`
   }
