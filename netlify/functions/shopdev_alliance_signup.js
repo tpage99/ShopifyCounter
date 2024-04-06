@@ -13,7 +13,7 @@ export const handler = async (event, context) => {
     "text": `New recruit! ${name} just requested to join the Alliance 🫡. They can be reached at: ${email}`
   }
 
-  console.log(`Sending the Slack message: ${slackMsg.text}`);
+  console.log(`Sending the Slack message: ${slackMsg.text} to ${slackURL}`);
 
   const response = await fetch(slackURL, {
     method: 'POST',
