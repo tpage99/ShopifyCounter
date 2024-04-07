@@ -7,9 +7,9 @@ export const handler = async (event, context) => {
   }
   const incomingData = JSON.parse(event.body);
   console.log(incomingData);
-  const name = incomingData.fields.name;
-  const email = incomingData.fields.email;
-  const signupTime = incomingData.fields.signed_up_date_time;
+  const name = incomingData.name;
+  const email = incomingData.email;
+  const signupTime = incomingData.created_at;
 
   console.log(`Updating table with: name: ${name} email: ${email} signed up date/time: ${signupTime}`);
   
