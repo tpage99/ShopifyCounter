@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/tpage99/ShopifyCounter/issues"
   },
-  "homepage": "https://github.com/tpage99/ShopifyCounter#readme"
+  "homepage": "https://github.com/tpage99/ShopifyCounter#readme",
+  "dependencies": {
+    "airtable": "^0.12.2"
+  }
 }
