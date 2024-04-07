@@ -17,10 +17,15 @@ node_bundler = "esbuild"
   to = "/.netlify/functions/customer_update"
   status = 200
 
-  [[redirects]]
-  from = "/shopdev-alliance-signup"
-  to = "/.netlify/functions/shopdev_alliance_signup"
-  status = 200
+[[redirects]]
+from = "/shopdev-alliance-signup"
+to = "/.netlify/functions/shopdev_alliance_signup"
+status = 200
+
+[[redirects]]
+from = "/shopdev-alliance-update-airtable-signup"
+to = "/.netlify/functions/airtable_update_signup"
+status = 200
 
   ## (optional) Settings for Netlify Dev
   ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
