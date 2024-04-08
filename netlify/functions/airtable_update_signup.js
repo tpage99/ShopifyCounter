@@ -22,14 +22,12 @@ export const handler = async (event, context) => {
         "signed up date/time": `${signupTime}`
       }
     }
-  ], function(err, records) {
+  ], function(err, record) {
     if (err) {
       console.error(err);
       return;
     }
-    records.forEach(function (record) {
-      console.log(record.getId());
-    });
+    console.log(record.getId());
   });
 };
 
