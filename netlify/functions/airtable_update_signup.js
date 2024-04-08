@@ -6,13 +6,15 @@ export const handler = async (event, context) => {
   }
   const incomingData = JSON.parse(event.body);
   console.log(incomingData);
+  const airtableToken = process.env.AIRTABLE_SIGNUP_TOKEN;
   const name = incomingData.name;
   const email = incomingData.email;
   const signupTime = incomingData.created_at;
-  const base = new Airtable({apiKey: 'AIRTABLE_SIGNUP_TOKEN'}).base('appvMCfxB0T6vV1TB');
+  const base = new Airtable({apiKey: airtableToken}).base('appvMCfxB0T6vV1TB');
 
 
   console.log(`Updating table with: name: ${name} email: ${email} signed up date/time: ${signupTime}`);
+  console.log(base);
   
   base('Imported table').create([
     {
